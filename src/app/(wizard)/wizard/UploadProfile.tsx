@@ -2,6 +2,7 @@ import ButtonSet from "@/components/ButtonSet"
 import DropZone from "@/components/DropZone"
 import useDataStore from "@/store/dataStore"
 import useStepStore from "@/store/stepStore"
+import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 // import { checkResult, fetchDocumentData, uploadFile } from "./actions"
@@ -15,6 +16,7 @@ const UploadProfile = () => {
     const profile = useDataStore(state => state.data.profile)
 	const [loading, setLoading] = useState(false)
 	const [topics, setTopics] = useState([])
+	const [isOpen, setIsOpen] = useState(false)
 	const submit = async (e: React.FormEvent) => {
 		e.preventDefault()
         updateCurrent(2)
@@ -77,6 +79,41 @@ const UploadProfile = () => {
 					</div>
 					<DropZone update={update} />
 					<ButtonSet className="mt-1" backButton={() => updateCurrent(0)} nextText={!profile ? "Skip" : "Next"}/>
+                    <div className="rounded-lg">
+                      <button
+                        className="w-full py-4 text-left flex items-center justify-between text-secondary font-medium text-lg"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setIsOpen(!isOpen);
+                        }}
+                      >
+                        How to get profile pdf from LinkedIn
+                        <svg
+                          className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </button>
+                      {isOpen && (
+                        <div className="p-0">
+                          <ol className="list-decimal list-inside text-sm text-secondary">
+                            <li>Go to your LinkedIn profile</li>
+                            <li>Click on the resources of your profile</li>
+                            <Image 
+                              src={require('@/assets/linkedin-download.png')} 
+                              alt="linkedin download" 
+                              width={500} 
+                              height={500} 
+                              className="my-2 rounded-md" 
+                            />
+                            <li>Click on "Save as PDF"</li>
+                          </ol>
+                        </div>
+                      )}
+                    </div>
 				</form>
 			)
 		default:
