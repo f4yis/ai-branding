@@ -17,5 +17,21 @@
 body {
 	color: var(--foreground);
 	background: var(--background);
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: var(--font-satoshi) Arial, Helvetica, sans-serif;
+}
+
+
+@layer components {
+	.container {
+		@apply mx-auto max-w-[max(75%,800px)] px-5;
+	}
+	.blur-bg {
+		@apply bg-blur bg-[length:100%_auto];
+	}
+	.gradient-bg {
+		@apply bg-gradient-to-r from-primary to-[#7DD957];
+	}
+	.gradient-bg-opacity {
+		@apply bg-gradient-to-r from-primary/40 to-[#7DD957]/40;
+	}
 }
