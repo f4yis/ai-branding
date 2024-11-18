@@ -86,7 +86,7 @@ const Goal = () => {
 			e.preventDefault()
 			updateCurrent(4)
 		}}>
-			<h2 className="text-[40px] text-secondary font-normal leading-[115%]">In-Depth Branding Inputs for Strategy Generation</h2>
+			<h2 className="text-[40px] text-secondary font-normal leading-[115%]">Deep Dive: Shape Your Personal Branding Strategy</h2>
 			<div className="flex gap-4 flex-col">
 				<Dropdown 
 					label="What is the primary audience you want to reach with your personal brand?"
@@ -95,7 +95,7 @@ const Goal = () => {
 					name="audience"
 				/>
 				<Dropdown 
-					label="How would you like to be perceived in your industry or future industry?"
+					label="How would you like to be perceived in your industry or desired field?"
 					options={perceptionOptions}
 					control={control}
 					name="perception"
@@ -118,6 +118,10 @@ const Goal = () => {
 					control={control}
 					name="skills"
 				/>
+				<div className="relative isolate flex items-center justify-center my-2">
+					<span className="pr-1 text-sm text-secondary">{state.type === 'student' ? 'Student' : 'Professional'}</span>
+					<div className="flex-1 h-[1px] bg-secondary/70"/>
+				</div>
 				{
 					state.type === 'student' ? (
 						<>

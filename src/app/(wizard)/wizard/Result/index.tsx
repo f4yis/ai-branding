@@ -18,7 +18,7 @@ const Result = () => {
 			e.preventDefault()
 			updateCurrent(0)
 		}}>
-			<h2 className="text-[40px] text-secondary font-normal leading-[115%]">Here is your result</h2>
+			<h2 className="text-[40px] text-secondary font-normal leading-[115%]">Your Personalized Branding Results Are Ready!</h2>
 			<div className="flex gap-2">
 				{
 					tabs?.map((t, i) => (

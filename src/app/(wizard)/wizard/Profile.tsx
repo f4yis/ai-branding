@@ -41,15 +41,17 @@ const Profile = () => {
 			e.preventDefault()
 			updateCurrent(3)
 		}}>
-			<h2 className="text-[40px] text-secondary font-normal leading-[115%]">Your profile</h2>
+			<div className="">
+				<h2 className="text-[40px] text-secondary font-normal leading-[115%]">Your Profile</h2>
+				<p className="text-secondary text-base">Let us understand your background to create a personalized branding strategy tailored to your goals.</p>
+			</div>
 			{
 				state.type === 'student' ? (
 					<div className="flex gap-4 flex-col">
 						<Dropdown label="What is your current level of study?" control={control} options={options} name="type" />
 						<Input label="What field or major are you studying?" />
 						<Input label="What are your primary career goals after graduation?" />
-						<Input label="Which industry do you aspire to work in, and do you have any specific roles in mind?" />
-						<Input label="What field or major are you studying?" />
+						<Input label="Which industry do you aspire to work in, and do you have specific roles in mind?" />
 						<Dropdown 
 							label="What are your top three skills or strengths you feel will help in your future career?" 
 							control={control} 
