@@ -4,7 +4,8 @@ import ButtonSet from "@/components/ButtonSet"
 import { useState } from "react"
 import useDataStore from "@/store/dataStore"
 
-const tabs = ['Branding', 'Social Media Posts', 'Personal Brand Strategy']
+// const tabs = ['Branding', 'Social Media Posts', 'Personal Brand Strategy']
+const tabs = ['Personal Brand Strategy']
 
 const Result = () => {
 	const router = useRouter()
