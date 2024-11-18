@@ -118,10 +118,7 @@ const Goal = () => {
 					control={control}
 					name="skills"
 				/>
-				<div className="relative isolate flex items-center justify-center my-2">
-					<span className="pr-1 text-sm text-secondary">{state.type === 'student' ? 'Student' : 'Professional'}</span>
-					<div className="flex-1 h-[1px] bg-secondary/70"/>
-				</div>
+				<div className="border-b border-secondary/50 my-2" />
 				{
 					state.type === 'student' ? (
 						<>

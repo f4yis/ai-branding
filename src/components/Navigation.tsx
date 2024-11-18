@@ -17,7 +17,7 @@ const Navigation =  () => {
 				<Link href="#" className="text-secondary font-medium text-sm">
 					About Us
 				</Link>
-				<div className='relative'>
+				{/* <div className='relative'>
 					<Link href={"#"}>
 						<svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M20 39.375C30.7005 39.375 39.375 30.7005 39.375 20C39.375 9.29948 30.7005 0.625 20 0.625C9.29948 0.625 0.625 9.29948 0.625 20C0.625 30.7005 9.29948 39.375 20 39.375Z" fill="#E9EBFE" />
@@ -31,7 +31,7 @@ const Navigation =  () => {
 
 						</div>
 					</Link>
-				</div>
+				</div> */}
 			</nav>
 		</div>
 	)

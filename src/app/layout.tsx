@@ -34,8 +34,8 @@ const satoshi = localFont({
 })
 
 export const metadata: Metadata = {
-	title: 'Ai Banding',
-	description: 'Ai Banding',
+	title: 'Semat.ai',
+	description: '',
 }
 
 export default function RootLayout({
