@@ -1,10 +1,9 @@
-"use client"
-import Image from 'next/image'
+'use client'
 import logo from '@/assets/logo.png'
+import Image from 'next/image'
 import Link from 'next/link'
 
-const Navigation =  () => {
-
+const Navigation = () => {
 	return (
 		<div className="flex py-5 justify-between items-center z-50">
 			<Link href="/">

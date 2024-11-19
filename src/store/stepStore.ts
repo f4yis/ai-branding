@@ -6,19 +6,19 @@ const StepStore = (set: any, get: any) => ({
 	fullPage: false,
 	updateSteps: (steps: string[]) => {
 		set(() => ({
-			steps
+			steps,
 		}))
 	},
 	updateCurrent: (current: number) => {
 		set(() => ({
-			current
+			current,
 		}))
 	},
 	updateFullPage: (fullPage: boolean) => {
 		set(() => ({
-			fullPage
+			fullPage,
 		}))
-	}
+	},
 })
 
 const useStepStore = create(StepStore)

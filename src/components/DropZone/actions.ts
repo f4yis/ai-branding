@@ -5,8 +5,8 @@
 // import isLogin from "@/utils/isLogin"
 
 export const getMedia = async () => {
-    // const { user, logged } = await isLogin()
-    // if(!logged) return []
-    // await dbConnect()
-    // return await Media.find({ user: user?._id }).lean()
+	// const { user, logged } = await isLogin()
+	// if(!logged) return []
+	// await dbConnect()
+	// return await Media.find({ user: user?._id }).lean()
 }
