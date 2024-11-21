@@ -34,13 +34,19 @@ const Dropdown = ({
 							singleValue: () => 'text-base text-primary',
 						}}
 						options={options}
-						value={options.find((c) => c.value === value)}
+						value={isMulti 
+							? options.filter((c) => value?.includes(c.value))
+							: options.find((c) => c.value === value)}
 						onChange={(val: any) => {
-							onChange(val?.value)
+							if (isMulti) {
+								onChange(val?.map((v: any) => v.value))
+							} else {
+								onChange(val?.value)
+							}
 						}}
 					/>
 				)}
-				rules={{ required: true }}
+				rules={{ required: false }}
 			/>
 		</div>
 	)

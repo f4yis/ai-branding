@@ -34,3 +34,14 @@ body {
 		@apply bg-gradient-to-r from-primary/40 to-[#7DD957]/40;
 	}
 }
+
+@keyframes slide-up {
+  0%, 25% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  26%, 100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}

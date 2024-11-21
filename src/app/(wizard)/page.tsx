@@ -1,6 +1,5 @@
 import Link from 'next/link'
-
-const App = () => {
+const App = async () => {
 	return (
 		<div className="flex-1 text-5x flex flex-col justify-center items-center p-6 relative">
 			<h2 className="text-4xl text-secondary font-extrabold">Hi There, Welcome to Your Branding Journey!</h2>
