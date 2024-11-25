@@ -14,7 +14,7 @@ const Status = () => {
 	return (
 		<form
 			name="form"
-			className="w-[max(65%,400px)] mx-auto mt-20 flex flex-col gap-6"
+			className="w-[max(65%,400px)] mx-auto mt-20 flex flex-col gap-6 max-w-full"
 			onSubmit={(e: React.FormEvent) => {
 				e.preventDefault()
 				updateCurrent(1)

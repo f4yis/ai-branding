@@ -6,7 +6,7 @@ const Footer = () => {
 			Copyright © 2024
 			<br />
 			Semat.ai All rights reserved
-			<div className="flex space-x-7">
+			<div className="flex space-x-7 max-md:hidden">
 				<Link href="#" className="leading-tight text-right">
 					<span className="block text-sm m-0 p-0 text-secondary font-medium">FAQ</span>
 					<span className="block text-[8px] m-0 p-0 leading-normal max-w-[100px]">

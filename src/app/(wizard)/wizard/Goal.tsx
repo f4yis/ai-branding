@@ -103,7 +103,7 @@ const Goal = () => {
 	return (
 		<form
 			name="form"
-			className="w-[max(65%,400px)] mx-auto mt-20 flex flex-col gap-6"
+			className="w-[max(65%,400px)] mx-auto mt-20 flex flex-col gap-6 max-w-full"
 			onSubmit={handleSubmit(submit)}
 		>
 			<h2 className="text-[40px] text-secondary font-normal leading-[115%]">

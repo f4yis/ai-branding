@@ -96,38 +96,21 @@ const UploadProfile = () => {
 						d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
 					></path>
 				</svg>
-				{/* <div className="text-secondary text-center relative h-20 overflow-hidden w-full">
-					{[
-						"Extracting your data from LinkedIn Profile",
-						"This may take a few minutes",
-						"AI is not perfect, so please check the result carefully",
-						"AI makes your life easier"
-					].map((text, index) => (
-						<p
-							key={index}
-							className="absolute w-full animate-slide-up"
-							style={{
-								animation: `slide-up 10s steps(1) infinite`,
-								animationDelay: `${index * 3}s`,
-								opacity: 0,
-							}}
-						>
-							{text}
-						</p>
-					))}
-				</div> */}
+				<div className="text-secondary text-center relative mt-2 overflow-hidden w-full px-3">
+					Processing your document to capture the data, please hold on
+				</div>
 			</div>
 		)
 	}
 
 	return (
-		<form className="w-[max(65%,400px)] mx-auto mt-20 flex flex-col gap-10" onSubmit={submit}>
+		<form className="w-[max(65%,400px)] mx-auto mt-20 flex flex-col gap-10 max-w-full" onSubmit={submit}>
 			<div>
 				<h2 className="max-w-full text-[40px] text-secondary font-normal leading-[115%]">
 					Upload your LinkedIn Profile
 				</h2>
 				<p className="text-secondary font-normal text-base mt-3">
-					Upload your LinkedIn Profile to extract your data. Skip if you don't have one
+					Upload your LinkedIn Profile to extract your data.
 				</p>
 			</div>
 			<DropZone update={update} />

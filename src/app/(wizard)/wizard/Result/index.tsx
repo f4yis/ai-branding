@@ -44,9 +44,36 @@ const Result = () => {
 	}, [generateResultDebounced, state, updateFullPage])
 
 	const [tab, setTab] = useState<string>(tabs[0])
+	const downloadPdf = () => {
+		// window.open(`/assets/${state.jobId}.pdf`, '_blank')
+
+		fetch(`/assets/${state.jobId}.pdf`, {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/pdf',
+			},
+		})
+			.then((response) => response.blob())
+			.then((blob) => {
+				const url = window.URL.createObjectURL(
+					new Blob([blob]),
+				);
+				const link = document.createElement('a');
+				link.href = url;
+				const name = state.student?.name || state.professional?.name || 'User';
+				const formattedName = name.replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_-]/g, '');
+				link.setAttribute(
+					'download',
+					`${formattedName}_PersonalBrandStrategy.pdf`,
+				);
+				document.body.appendChild(link);
+				link.click();
+				link?.parentNode?.removeChild(link);
+			})
+	}
 	if (loading) {
 		return (
-			<div className="flex-1 flex justify-center items-center">
+			<div className="flex-1 flex flex-col justify-center items-center">
 				<svg
 					className="animate-spin size-6 text-secondary"
 					xmlns="http://www.w3.org/2000/svg"
@@ -67,13 +94,16 @@ const Result = () => {
 						d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
 					></path>
 				</svg>
+				<div className="text-secondary text-center relative mt-2 overflow-hidden w-full px-3">
+				Your personal branding strategy is being prepared. This process may take approximately 2 minutes. Please don't close this tab during this time.
+				</div>
 			</div>
 		)
 	}
 	return (
 		<form
 			name="form"
-			className="w-[max(85%,400px)] mx-auto mt-20 flex flex-col gap-6"
+			className="w-[max(85%,400px)] mx-auto mt-20 flex flex-col gap-6 max-w-full"
 			onSubmit={(e: React.FormEvent) => {
 				e.preventDefault()
 				updateCurrent(0)
@@ -94,8 +124,16 @@ const Result = () => {
 					</button>
 				))}
 			</div>
-			<div>
-				<iframe src={`/assets/${state.jobId}.pdf`} className="w-full h-[50vh]" title="result" />
+			<div className="my-6">
+				<button
+					type="button"
+					onClick={downloadPdf}
+					className={
+						'text-base text-center flex-1 py-2 px-5 bg-primary rounded-full disabled:bg-opacity-50 text-white hover:bg-secondary font-medium'
+					}
+				>
+					Download PDF
+				</button>
 			</div>
 			<ButtonSet className="mt-1" backButton={() => updateCurrent(3)} nextText="Start new" />
 		</form>

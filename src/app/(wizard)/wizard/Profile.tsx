@@ -59,7 +59,7 @@ const Profile = () => {
 	return (
 		<form
 			name="form"
-			className="w-[max(65%,400px)] mx-auto mt-20 flex flex-col gap-6"
+			className="w-[max(65%,400px)] mx-auto mt-20 flex flex-col gap-6 max-w-full"
 			onSubmit={submit}
 		>
 			<div className="">
@@ -110,7 +110,7 @@ const Profile = () => {
 						options={[
 							{ label: 'Advancement', value: 'advancement' },
 							{ label: 'Specialization', value: 'specialization' },
-							{ label: 'pivot to a new field', value: 'Pivot to a new field' },
+							{ label: 'Pivot to a new field', value: 'pivot to a new field' },
 						]}
 						name="professional.goal"
 					/>

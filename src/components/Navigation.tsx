@@ -9,7 +9,7 @@ const Navigation = () => {
 			<Link href="/">
 				<Image src={logo} alt="f" className="h-12 w-auto" />
 			</Link>
-			<nav className="inline-flex items-center gap-9">
+			<nav className="inline-flex items-center gap-9 max-md:hidden">
 				<Link href="/" className="text-secondary font-medium text-sm">
 					Home
 				</Link>

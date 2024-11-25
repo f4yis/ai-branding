@@ -43,7 +43,7 @@ const Apply = ({ children }: { children: React.ReactNode }) => {
 			<div
 				id="roooot"
 				className={twMerge(
-					'max-w-[min(80%,900px)] w-full mt-9 relative',
+					'max-w-[min(80%,900px)] w-full mt-9 relative max-md:max-w-full',
 					!steps.length && 'hidden',
 					fullPage && 'flex-col flex mt-0 max-w-full h-full flex-1 justify-center items-center',
 				)}
