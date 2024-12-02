@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 export default function Faq() {
-    const [expanded, setExpanded] = useState(null);
+    const [expanded, setExpanded] = useState<null | number>(null);
     return (
         <section id="faqs" className="min-h-screen flex flex-col justify-center items-center bg-white">
                 <div className="w-full max-w-3xl px-4">
