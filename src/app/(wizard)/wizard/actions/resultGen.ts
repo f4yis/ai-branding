@@ -119,11 +119,33 @@ export const generateStudentResult = async (state: DataState) => {
             emphasize academic accomplishments, aspirations, and how their skills align with their desired field or audience. Highlight their growth potential and readiness to contribute.
             `
         ),
-        pdfToText(docs, `Generate a detailed user profile that provides an organized and comprehensive overview of the user's professional background, career aspirations, personal branding goals, and target audience. The profile should rely solely on the provided information, without assumptions or additional details`),
+        pdfToText(docs, `Generate a detailed user profile that provides an organized and comprehensive overview of the user's professional background, career aspirations, personal branding goals, and target audience. The profile should rely solely on the provided information, without assumptions or additional details
+            take following as an example. Just as an example dont take the data
+            Name: XXX
+            Current Role: Technical Program Manager at XXXX
+            Industry: STEM Education and XXX
+            Years of Experience: 8+
+            Education: B.Tech. xxxx
+            Key Skills: xxxx
+            Certifications: xxxx
+            Notable Projects:
+            xxxx
+            xxxx
+            Career Aspirations: xxxx
+            `),
         chat(
             'Personal Branding Goals for the candidate. Dont include any titles like Personal Branding Goals. include as much as possible.'
         ),
-        pdfToText(docs, "give me an assesment report and recommendations of the profile of the person. include the skills, strengths, weaknesses, opportunities, threats, and career goals. Compare the old profile and the new profile and the report should be in markdown format. dont include any titles like Assesment Report")
+        pdfToText(docs, `give me an assesment report and recommendations of the profile of the person. include the skills, strengths, weaknesses, opportunities, threats, and career goals. Compare the old profile and the new profile and the report should be in markdown format. dont include any titles like Assesment Report
+            take the following as an example. Just as an example dont take the data
+            Summary Example:
+            Current Summary: "Crafting MakerSpaces & Innovative Curriculum at xxxx."
+            Recommended Summary: "As a Technical Program Manager, I specialize in bridging the gap between technology and education. With expertise in robotics, IoT, and STEM curriculum design, I’ve empowered over 10,000 students through innovative xxx and workshops. My mission is to inspire educators and students globally, fostering creativity and hands-on learning."
+            Experience Section Example:
+
+            Current Description: "Led programs and workshops at xxxx."
+            Recommended Description: "Designed and implemented IoT-based educational programs, reaching 10,000+ students. Spearheaded a curriculum redesign, improving engagement by 30% and enabling rural schools to integrate robotics and xxx effectively."
+            `)
     ])
 
     const [
@@ -139,7 +161,18 @@ export const generateStudentResult = async (state: DataState) => {
         chat(
             'A detailed Industry Insights for the candidate. include the industry trends, skills, and opportunities.'
         ),
-        chat('A detailed Action Plan for the candidate. include the steps to achieve the goals. must be in details and upto 500 words.')
+        chat(`A detailed Action Plan for the candidate. include the steps to achieve the goals. must be in details and upto 100 words. and also include bullet points and action steps as following. just take it as example dont take the data
+            
+            Immediate Goals (Next 30 Days):
+            Update LinkedIn summary and headline.
+            Publish one thought leadership article.
+            Short-Term Objectives (3-6 Months):
+            Host a webinar on "The Role of Robotics in Future Education."
+            Collaborate with three industry leaders on STEM projects.
+            Long-Term Vision (1-2 Years):
+            Expand MakerGhat's reach globally.
+            Be recognized as a keynote speaker in EdTech summits.
+            `)
     ])
 
 
@@ -149,7 +182,14 @@ export const generateStudentResult = async (state: DataState) => {
         brandFont
     ] = await Promise.all([
         chat(
-            'A Networking and Engagement Plan for the candidate. include the steps to achieve the goals. must be in details and upto 500 words.'
+            `A Networking and Engagement Plan for the candidate. include the steps to achieve the goals. must be bref and max ium of 100 works. But also include bullet points like following
+            Expanded Steps:
+
+            Attend key STEM conferences, such as "Maker Faire" and "EdTech Asia Summit."
+            Join LinkedIn groups focused on education technology, like "Global Educators Network."
+            Write guest articles for platforms like EdSurge and Medium, focusing on STEM challenges.
+            Collaborate with global MakerSpace leaders to co-host webinars.
+            `
         ),
         chatJson("create a brand color for the candidate. must match following json schema. dont include the schema return the result", z.object({ 
             primaryColor: z.string().describe("primary color in hex code"),
@@ -285,13 +325,36 @@ export const generateProfessionalResult = async (state: DataState) => {
         assessmentAndRecommendations
     ] = await Promise.all([
         chat(
-            'write a Executive Summary for the candidate. it should be 200 words. dont include any titles like Executive Summary'
+            `Generate a professional narrative for a personal branding document. The summary should be concise yet impactful, tailored to whether the user is a student or a professional. It should provide an overview of their profile, achievements, strengths, branding goals, and targeted organizations or career levels.
+            emphasize academic accomplishments, aspirations, and how their skills align with their desired field or audience. Highlight their growth potential and readiness to contribute.`
         ),
-        pdfToText(docs, "generate Profile Overview of the person. Don't include the title Profile Overview. can be list and small titles as ###"),
+        pdfToText(docs, `Generate a detailed user profile that provides an organized and comprehensive overview of the user's professional background, career aspirations, personal branding goals, and target audience. The profile should rely solely on the provided information, without assumptions or additional details
+            take following as an example. Just as an example dont take the data
+            Name: XXX
+            Current Role: Technical Program Manager at XXXX
+            Industry: STEM Education and XXX
+            Years of Experience: 8+
+            Education: B.Tech. xxxx
+            Key Skills: xxxx
+            Certifications: xxxx
+            Notable Projects:
+            xxxx
+            xxxx
+            Career Aspirations: xxxx
+            `),
         chat(
             'Personal Branding Goals for the candidate. Dont include any titles like Personal Branding Goals. include as much as possible.'
         ),
-        pdfToText(docs, "give me an assesment report and recommendations of the profile of the person. include the skills, strengths, weaknesses, opportunities, threats, and career goals. Compare the old profile and the new profile and the report should be in markdown format. dont include any titles like Assesment Report")
+        pdfToText(docs, `give me an assesment report and recommendations of the profile of the person. include the skills, strengths, weaknesses, opportunities, threats, and career goals. Compare the old profile and the new profile and the report should be in markdown format. dont include any titles like Assesment Report
+            take the following as an example. Just as an example dont take the data
+            Summary Example:
+            Current Summary: "Crafting MakerSpaces & Innovative Curriculum at xxxx."
+            Recommended Summary: "As a Technical Program Manager, I specialize in bridging the gap between technology and education. With expertise in robotics, IoT, and STEM curriculum design, I’ve empowered over 10,000 students through innovative xxx and workshops. My mission is to inspire educators and students globally, fostering creativity and hands-on learning."
+            Experience Section Example:
+
+            Current Description: "Led programs and workshops at xxxx."
+            Recommended Description: "Designed and implemented IoT-based educational programs, reaching 10,000+ students. Spearheaded a curriculum redesign, improving engagement by 30% and enabling rural schools to integrate robotics and xxx effectively."
+            `)
     ])
 
     const [
@@ -307,7 +370,18 @@ export const generateProfessionalResult = async (state: DataState) => {
         chat(
             'A detailed Industry Insights for the candidate. include the industry trends, skills, and opportunities.'
         ),
-        chat('A detailed Action Plan for the candidate. include the steps to achieve the goals. must be in details and upto 500 words.')
+        chat(`A detailed Action Plan for the candidate. include the steps to achieve the goals. must be in details and upto 100 words. and also include bullet points and action steps as following. just take it as example dont take the data
+            
+            Immediate Goals (Next 30 Days):
+            Update LinkedIn summary and headline.
+            Publish one thought leadership article.
+            Short-Term Objectives (3-6 Months):
+            Host a webinar on "The Role of Robotics in Future Education."
+            Collaborate with three industry leaders on STEM projects.
+            Long-Term Vision (1-2 Years):
+            Expand MakerGhat's reach globally.
+            Be recognized as a keynote speaker in EdTech summits.
+            `)
     ])
 
 
@@ -317,7 +391,14 @@ export const generateProfessionalResult = async (state: DataState) => {
         brandFont
     ] = await Promise.all([
         chat(
-            'A Networking and Engagement Plan for the candidate. include the steps to achieve the goals. must be in details and upto 500 words.'
+            `A Networking and Engagement Plan for the candidate. include the steps to achieve the goals. must be bref and max ium of 100 works. But also include bullet points like following
+            Expanded Steps:
+
+            Attend key STEM conferences, such as "Maker Faire" and "EdTech Asia Summit."
+            Join LinkedIn groups focused on education technology, like "Global Educators Network."
+            Write guest articles for platforms like EdSurge and Medium, focusing on STEM challenges.
+            Collaborate with global MakerSpace leaders to co-host webinars.
+            `
         ),
         chatJson("create a brand color for the candidate. must match following json schema. dont include the schema return the result", z.object({ 
             primaryColor: z.string().describe("primary color in hex code"),
