@@ -132,6 +132,8 @@ export const generateStudentResult = async (state: DataState) => {
             xxxx
             xxxx
             Career Aspirations: xxxx
+
+            Make the peervios 
             `),
         chat(
             'Personal Branding Goals for the candidate. Dont include any titles like Personal Branding Goals. include as much as possible.'

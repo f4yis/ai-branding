@@ -1,3 +1,4 @@
+'use client'
 import Header from "@/components/Header"
 import Link from "next/link"
 
@@ -6,10 +7,15 @@ import image1 from "@/assets/semat-ai-landing.jpg"
 import image2 from "@/assets/linkedin-ai.png"
 import image3 from "@/assets/profile.png"
 import Faq from "@/components/Faq"
+import { useRef } from "react"
 
 const Home = () => {
+    const funRef = useRef(() => null)
+    const fun = (callback: () => any) => {
+        funRef.current = callback
+    }
     return <>
-        <Header />
+        <Header callback={fun}/>
         <main>
             <section className="flex flex-col items-center justify-center min-h-screen text-center px-4 lg:px-16 mt-32">
                 <header>
@@ -23,7 +29,7 @@ const Home = () => {
                     An innovative AI-driven platform designed to help students, graduates, and professionals build compelling personal brands, optimize LinkedIn profiles, and generate impactful content effortlessly.
                 </p>
                 <Link href="#next-section" className="block mt-4 max-w-4xl mx-auto">
-                <Image src={image1} alt="AI-powered branding illustration" className="rounded-lg shadow-2xl hover:opacity-80 transition-opacity duration-300 w-full" loading="lazy" />
+                <Image onClick={() => funRef.current()} src={image1} alt="AI-powered branding illustration" className="rounded-lg shadow-2xl hover:opacity-80 transition-opacity duration-300 w-full" loading="lazy" />
                 </Link>
             </section>
 
