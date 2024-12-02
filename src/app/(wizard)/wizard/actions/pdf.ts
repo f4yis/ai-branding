@@ -13,7 +13,7 @@ import { chatModel } from '@/ai/openai';
 type Data = {
     executiveSummary: string,
     profileOverview: string,
-    bradningGoal: string,
+    elevatorPitch: string,
     contentStrategy: string,
     skillDevelopmentPlan: string,
     industryInsights: string,

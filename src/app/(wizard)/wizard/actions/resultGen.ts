@@ -111,7 +111,7 @@ export const generateStudentResult = async (state: DataState) => {
     const [
         executiveSummary,
         profileOverview,
-        bradningGoal,
+        elevatorPitch,
         assessmentAndRecommendations
     ] = await Promise.all([
         chat(
@@ -133,10 +133,14 @@ export const generateStudentResult = async (state: DataState) => {
             xxxx
             Career Aspirations: xxxx
 
-            Make the peervios 
+            make the previous experince single line or remove it if not needed.
+            Contact information remove
             `),
         chat(
-            'Personal Branding Goals for the candidate. Dont include any titles like Personal Branding Goals. include as much as possible.'
+            `Elevator Pitch for the candidate. include the pitch in details and upto 100 words. Following is an exmaple don't use the data from it
+            
+            Example: "I’m XXX, a Technical Program Manager with over eight years of experience in STEM education and MakerSpaces. I specialize in designing innovative curriculums and empowering educators with hands-on tools like robotics and IoT kits. My mission is to inspire future innovators by making STEM education accessible globally. I’d love to explore collaborations that drive meaningful change in education technology."
+            `
         ),
         pdfToText(docs, `give me an assesment report and recommendations of the profile of the person. include the skills, strengths, weaknesses, opportunities, threats, and career goals. Compare the old profile and the new profile and the report should be in markdown format. dont include any titles like Assesment Report
             take the following as an example. Just as an example dont take the data
@@ -208,7 +212,7 @@ export const generateStudentResult = async (state: DataState) => {
     generatePdf(state.student.name, { 
         executiveSummary, 
         profileOverview, 
-        bradningGoal,
+        elevatorPitch,
         contentStrategy,
         skillDevelopmentPlan,
         industryInsights,
@@ -323,7 +327,7 @@ export const generateProfessionalResult = async (state: DataState) => {
     const [
         executiveSummary,
         profileOverview,
-        bradningGoal,
+        elevatorPitch,
         assessmentAndRecommendations
     ] = await Promise.all([
         chat(
@@ -343,10 +347,16 @@ export const generateProfessionalResult = async (state: DataState) => {
             xxxx
             xxxx
             Career Aspirations: xxxx
+
+            make the previous experince single line or remove it if not needed.
+            Contact information remove
             `),
-        chat(
-            'Personal Branding Goals for the candidate. Dont include any titles like Personal Branding Goals. include as much as possible.'
-        ),
+            chat(
+                `Elevator Pitch for the candidate. include the pitch in details and upto 100 words. Following is an exmaple don't use the data from it
+                
+                Example: "I’m XXX, a Technical Program Manager with over eight years of experience in STEM education and MakerSpaces. I specialize in designing innovative curriculums and empowering educators with hands-on tools like robotics and IoT kits. My mission is to inspire future innovators by making STEM education accessible globally. I’d love to explore collaborations that drive meaningful change in education technology."
+                `
+            ),
         pdfToText(docs, `give me an assesment report and recommendations of the profile of the person. include the skills, strengths, weaknesses, opportunities, threats, and career goals. Compare the old profile and the new profile and the report should be in markdown format. dont include any titles like Assesment Report
             take the following as an example. Just as an example dont take the data
             Summary Example:
@@ -417,7 +427,7 @@ export const generateProfessionalResult = async (state: DataState) => {
     generatePdf(state.professional.name, { 
         executiveSummary, 
         profileOverview, 
-        bradningGoal,
+        elevatorPitch,
         contentStrategy,
         skillDevelopmentPlan,
         industryInsights,
