@@ -1,10 +1,12 @@
 'use client'
 import { useEffect, useState } from "react";
 
-const Header = ({callback}: {callback: (e: any) => void}) => {
+const Header = ({callback}: {callback?: (e: any) => void}) => {
     const [isOpen, setIsOpen] = useState(false);
     useEffect(() => {
-        callback(() => setIsOpen(true))
+        if(callback) {
+            callback(() => setIsOpen(true))
+        }
     }, [callback])
     return (
         <>
