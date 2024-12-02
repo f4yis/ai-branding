@@ -6,11 +6,9 @@ import { useEffect, useState, useCallback } from 'react'
 import { checkPdfStatus, generateResult } from '../actions'
 
 // const tabs = ['Branding', 'Social Media Posts', 'Personal Brand Strategy']
-const tabs = ['Personal Brand Strategy']
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 const Result = () => {
-	const router = useRouter()
 	const updateCurrent = useStepStore((state) => state.updateCurrent)
 
 	const state = useDataStore((state) => state.data)
@@ -19,6 +17,7 @@ const Result = () => {
 	const [loading, setLoading] = useState(true)
 
 	const generateResultDebounced = useCallback(async () => {
+		console.log(state)
 		const status = await generateResult(state)
 		if(status) {
 			const checkStatus = async () => {
@@ -43,7 +42,6 @@ const Result = () => {
 		return () => clearTimeout(timer)
 	}, [generateResultDebounced, state, updateFullPage])
 
-	const [tab, setTab] = useState<string>(tabs[0])
 	const downloadPdf = () => {
 		// window.open(`/assets/${state.jobId}.pdf`, '_blank')
 
@@ -106,36 +104,13 @@ const Result = () => {
 			className="w-[max(85%,400px)] mx-auto mt-20 flex flex-col gap-6 max-w-full"
 			onSubmit={(e: React.FormEvent) => {
 				e.preventDefault()
-				updateCurrent(0)
 			}}
 		>
-			<h2 className="text-[40px] text-secondary font-normal leading-[115%]">
+			<h2 className="text-[40px] text-secondary font-medium leading-[115%]">
 				Your Personalized Branding Results Are Ready!
 			</h2>
-			<div className="flex gap-2">
-				{tabs?.map((t, i) => (
-					<button
-						key={`tab-${i.toString()}`}
-						className={`text-white rounded-full py-1.5 px-3.5 bg-opacity-10 text-sm font-medium ${tab === t ? 'gradient-bg' : 'gradient-bg-opacity'}`}
-						type="button"
-						onClick={() => setTab(t)}
-					>
-						{t}
-					</button>
-				))}
-			</div>
-			<div className="my-6">
-				<button
-					type="button"
-					onClick={downloadPdf}
-					className={
-						'text-base text-center flex-1 py-2 px-5 bg-primary rounded-full disabled:bg-opacity-50 text-white hover:bg-secondary font-medium'
-					}
-				>
-					Download PDF
-				</button>
-			</div>
-			<ButtonSet className="mt-1" backButton={() => updateCurrent(3)} nextText="Start new" />
+			
+			<ButtonSet backText='Start new' backButton={() => updateCurrent(0)} className="mt-1" nextButton={downloadPdf} nextText="Download PDF" />
 		</form>
 	)
 }

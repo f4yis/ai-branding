@@ -28,21 +28,19 @@ const toneOptions = [
 const contentTypeOptions = [
 	{ label: 'Thought Leadership Articles', value: 'thought_leadership_articles' },
 	{ label: 'Industry Insights', value: 'industry_insights' },
-	{ label: 'Resumes', value: 'resumes' },
 ]
 const contentLikesOptions = [
-	{ label: 'Showcasing school projects', value: 'showcasing_school_projects' },
+	{ label: 'Showcasing projects', value: 'showcasing_projects' },
 	{ label: 'Thought pieces on your field', value: 'thought_pieces_on_field' },
+	{ label: 'Industry Insights', value: 'industry_insights' }
 ]
 const contentWorkOptions = [
 	{ label: 'Thought Leadership Articles', value: 'thought_leadership_articles' },
-	{ label: 'Industry Insights', value: 'industry_insights' },
 ]
 
 const skillOptions = [
 	{ label: 'Profile Optimization', value: 'profile_optimization' },
 	{ label: 'Content Writing', value: 'content_writing' },
-	{ label: 'Personal Branding', value: 'personal_branding' },
 	{ label: 'Networking Strategy', value: 'networking_strategy' },
 	{ label: 'Career Development', value: 'career_development' },
 ]
@@ -106,7 +104,7 @@ const Goal = () => {
 			className="w-[max(65%,400px)] mx-auto mt-20 flex flex-col gap-6 max-w-full"
 			onSubmit={handleSubmit(submit)}
 		>
-			<h2 className="text-[40px] text-secondary font-normal leading-[115%]">
+			<h2 className="text-[40px] text-secondary font-medium leading-[115%]">
 				Deep Dive: Shape Your Personal Branding Strategy
 			</h2>
 			<div className="flex gap-4 flex-col">
@@ -182,18 +180,21 @@ const Goal = () => {
 							control={control}
 							name="professional.profileOptimization"
 						/>
-						<Dropdown
-							label="Do you have specific achievements or experiences you would like to emphasize?"
-							options={yesNoOptions}
-							control={control}
-							name="professional.achievements"
-						/>
-						<Dropdown
-							label="What type of content aligns best with your branding goals?"
-							options={contentWorkOptions}
-							control={control}
-							name="professional.contentType"
-						/>
+						<div className="relative w-full">
+							<div className="flex justify-between">
+								<label className="text-base mb-2 block text-secondary font-medium">Do you have specific achievements or experiences you would like to emphasize?</label>
+							</div>
+
+							<div className="flex gap-1 w-full">
+								<textarea 
+									rows={3}
+									className="flex flex-1 w-full text-secondary rounded-md border-2 border-primary bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+									{...register('professional.achievements')}
+								/>
+								
+							</div>
+
+						</div>
 						<Dropdown
 							label="Would you like feedback on aligning your profile with industry trends or leadership paths?"
 							options={yesNoOptions}

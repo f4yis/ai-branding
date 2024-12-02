@@ -106,7 +106,7 @@ const UploadProfile = () => {
 	return (
 		<form className="w-[max(65%,400px)] mx-auto mt-20 flex flex-col gap-10 max-w-full" onSubmit={submit}>
 			<div>
-				<h2 className="max-w-full text-[40px] text-secondary font-normal leading-[115%]">
+				<h2 className="max-w-full text-[40px] text-secondary font-medium leading-[115%]">
 					Upload your LinkedIn Profile
 				</h2>
 				<p className="text-secondary font-normal text-base mt-3">

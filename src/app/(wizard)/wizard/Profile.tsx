@@ -63,7 +63,7 @@ const Profile = () => {
 			onSubmit={submit}
 		>
 			<div className="">
-				<h2 className="text-[40px] text-secondary font-normal leading-[115%]">Your Profile</h2>
+				<h2 className="text-[40px] text-secondary font-medium leading-[115%]">Your Profile</h2>
 				<p className="text-secondary text-base">
 					Let us understand your background to create a personalized branding strategy tailored to your goals.
 				</p>

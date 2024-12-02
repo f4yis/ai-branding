@@ -20,19 +20,19 @@ const Status = () => {
 				updateCurrent(1)
 			}}
 		>
-			<h2 className="text-[40px] text-secondary font-normal leading-[115%]">
+			<h2 className="text-[40px] text-secondary font-medium leading-[115%]">
 				Are you currently a student or working?
 			</h2>
 			<div className="flex gap-4">
 				<button
-					className={`flex-1 text-white rounded-md py-3 px-5 bg-opacity-10 font-medium ${data.type === 'student' ? 'gradient-bg' : 'gradient-bg-opacity'}`}
+					className={`flex-1 rounded-md py-3 px-5 border-primary border-2 font-medium ${data.type === 'student' ? 'bg-primary text-white' : 'bg-transparent text-primary'}`}
 					type="button"
 					onClick={() => updateField({ type: 'student' })}
 				>
 					Student
 				</button>
 				<button
-					className={`flex-1 text-white rounded-md py-3 px-5 bg-opacity-10 font-medium ${data.type === 'professional' ? 'gradient-bg' : 'gradient-bg-opacity'}`}
+					className={`flex-1 rounded-md py-3 px-5 border-primary border-2 font-medium ${data.type === 'professional' ? 'bg-primary text-white' : 'bg-transparent text-primary'}`}
 					type="button"
 					onClick={() => updateField({ type: 'professional' })}
 				>
@@ -44,7 +44,10 @@ const Status = () => {
 					Select wheater you are a student or professional that will help you get the best experience
 				</p>
 			</div>
-			<ButtonSet className="mt-1" backButton={() => router.back()} />
+			<ButtonSet noBack  className="mt-1" backButton={() => {
+				
+			}}
+			/>
 		</form>
 	)
 }

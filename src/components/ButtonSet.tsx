@@ -9,7 +9,8 @@ export interface Props {
 	backText?: string
 	nextBtnClass?: string
 	backBtnClass?: string
-	loading?: boolean
+	loading?: boolean,
+	noBack?: boolean
 }
 
 const ButtonSet: FC<Props> = ({
@@ -21,6 +22,7 @@ const ButtonSet: FC<Props> = ({
 	nextBtnClass,
 	backBtnClass,
 	loading,
+	noBack = false
 }) => {
 	// const back = useHashStore(state => state.back)
 	// const updateBack = useHashStore(state => state.updateBack)
@@ -28,19 +30,23 @@ const ButtonSet: FC<Props> = ({
 	return (
 		<div className={twMerge('flex flex-col gap-2', className)}>
 			<div className={twMerge('flex gap-6')}>
-				<button
-					type="button"
-					onClick={() => {
-						// updateBack(current)
-						backButton()
-					}}
-					className={twMerge(
-						'text-base py-2 px-5 border-2 border-primary text-primary rounded-full font-medium text-center max-w-[160px] w-full hover:bg-primary hover:text-white',
-						backBtnClass,
-					)}
-				>
-					{backText || 'Back'}
-				</button>
+				{
+					!noBack && (
+						<button
+							type="button"
+							onClick={() => {
+								// updateBack(current)
+								backButton()
+							}}
+							className={twMerge(
+								'text-base py-2 px-5 border-2 border-primary text-primary rounded-full font-medium text-center max-w-[160px] w-full hover:bg-primary hover:text-white',
+								backBtnClass,
+							)}
+						>
+							{backText || 'Back'}
+						</button>
+					)
+				}
 				<button
 					disabled={loading}
 					type="submit"
