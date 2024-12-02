@@ -67,13 +67,13 @@ export const generateStudentResult = async (state: DataState) => {
     const regularSystemContent = `
         ${systemContent}
 
-        You are required to generate anwer the user question based on the above profile and goal. The answer should be in markdown format. and the content is to include in personal branding document and shoud be in that tone and perception. and the content specificaly for Qatar
+        You are required to generate anwer the user question based on the above profile and goal. The answer should be in markdown format. and the content is to include in personal branding document and shoud be in that tone and perception.
     `
 
     const jsonSystemContent = `
         ${systemContent}
 
-        You are required to generate anwer the user question on requested JSON format based on the above profile and goal. The answer should be in json format. and the content is to include in personal branding document and shoud be in that tone and perception. and the content specificaly for Qatar.
+        You are required to generate anwer the user question on requested JSON format based on the above profile and goal. The answer should be in json format. and the content is to include in personal branding document and shoud be in that tone and perception..
     `
 
 	const chat = async (q: string) => {
@@ -235,13 +235,13 @@ export const generateProfessionalResult = async (state: DataState) => {
     const regularSystemContent = `
         ${systemContent}
 
-        You are required to generate anwer the user question based on the above profile and goal. The answer should be in markdown format. and the content is to include in personal branding document and shoud be in that tone and perception. and the content specificaly for Qatar
+        You are required to generate anwer the user question based on the above profile and goal. The answer should be in markdown format. and the content is to include in personal branding document and shoud be in that tone and perception.
     `
 
     const jsonSystemContent = `
         ${systemContent}
 
-        You are required to generate anwer the user question on requested JSON format based on the above profile and goal. The answer should be in json format. and the content is to include in personal branding document and shoud be in that tone and perception. and the content specificaly for Qatar.
+        You are required to generate anwer the user question on requested JSON format based on the above profile and goal. The answer should be in json format. and the content is to include in personal branding document and shoud be in that tone and perception..
     `
 
 	const chat = async (q: string) => {
@@ -329,7 +329,7 @@ export const generateProfessionalResult = async (state: DataState) => {
         }))
     ])
 
-    generatePdf(state.student.name, { 
+    generatePdf(state.professional.name, { 
         executiveSummary, 
         profileOverview, 
         bradningGoal,
