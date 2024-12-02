@@ -93,7 +93,7 @@ const Result = () => {
 					></path>
 				</svg>
 				<div className="text-secondary text-center relative mt-2 overflow-hidden w-full px-3">
-				Your personal branding strategy is being prepared. This process may take approximately 2 minutes. Please don't close this tab during this time.
+				Your personal branding strategy is being prepared. This process may take approximately 3 minutes. Please don't close this tab during this time.
 				</div>
 			</div>
 		)

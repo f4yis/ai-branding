@@ -10,7 +10,7 @@ import redisClient from '@/utils/redisClient'
 
 export const generateStudentResult = async (state: DataState) => {
 	const systemContent = `
-        Canidate is a student with the following profile as QA:
+        Imagine you are super smart branding specilist and you are asked to create a personal branding document for the following profile. Canidate is a student with the following profile as QA:
         -----
         Q: What is your name
         A: ${state.student.name}
@@ -67,13 +67,13 @@ export const generateStudentResult = async (state: DataState) => {
     const regularSystemContent = `
         ${systemContent}
 
-        You are required to generate anwer the user question based on the above profile and goal. The answer should be in markdown format. and the content is to include in personal branding document and shoud be in that tone and perception.
+        You are required to generate anwer the user question based on the profile. The answer should be in markdown format. and the content is to include in personal branding document and shoud be in that tone and perception.
     `
 
     const jsonSystemContent = `
         ${systemContent}
 
-        You are required to generate anwer the user question on requested JSON format based on the above profile and goal. The answer should be in json format. and the content is to include in personal branding document and shoud be in that tone and perception..
+        You are required to generate anwer the user question on requested JSON format based on the profile and goal. The answer should be in json format. and the content is to include in personal branding document and shoud be in that tone and perception..
     `
 
 	const chat = async (q: string) => {
@@ -115,9 +115,11 @@ export const generateStudentResult = async (state: DataState) => {
         assessmentAndRecommendations
     ] = await Promise.all([
         chat(
-            'write a Executive Summary for the candidate. it should be 200 words. dont include any titles like Executive Summary'
+            `Generate a professional narrative for a personal branding document. The summary should be concise yet impactful, tailored to whether the user is a student or a professional. It should provide an overview of their profile, achievements, strengths, branding goals, and targeted organizations or career levels.
+            emphasize academic accomplishments, aspirations, and how their skills align with their desired field or audience. Highlight their growth potential and readiness to contribute.
+            `
         ),
-        pdfToText(docs, "generate Profile Overview of the person. Don't include the title Profile Overview. can be list and small titles as ###"),
+        pdfToText(docs, `Generate a detailed user profile that provides an organized and comprehensive overview of the user's professional background, career aspirations, personal branding goals, and target audience. The profile should rely solely on the provided information, without assumptions or additional details`),
         chat(
             'Personal Branding Goals for the candidate. Dont include any titles like Personal Branding Goals. include as much as possible.'
         ),
