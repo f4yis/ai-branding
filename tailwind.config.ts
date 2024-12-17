@@ -8,9 +8,9 @@ export default {
 	],
 	theme: {
 		colors: {
-			primary: '#0077cc',
+			primary: '#0277CC',
 			secondary: '#002d4d',
-			stroke: '#adddff',
+			stroke: '#E3E9F7',
 			white: '#FFFFFF',
 		},
 		extend: {

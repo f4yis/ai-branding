@@ -59,17 +59,18 @@ const Profile = () => {
 	return (
 		<form
 			name="form"
-			className="w-[max(65%,400px)] mx-auto mt-20 flex flex-col gap-6 max-w-full"
+			className="w-[max(95%,400px)] mx-auto mt-20 flex flex-col gap-6 max-w-full flex-1"
 			onSubmit={submit}
 		>
 			<div className="">
-				<h2 className="text-[40px] text-secondary font-medium leading-[115%]">Your Profile</h2>
+				<h2 className="text-[40px] text-primary font-bold leading-[115%]">Your Profile</h2>
 				<p className="text-secondary text-base">
 					Let us understand your background to create a personalized branding strategy tailored to your goals.
 				</p>
 			</div>
 			{state.type === 'student' ? (
-				<div className="flex gap-4 flex-col">
+				<div className="grid grid-cols-2 grid-rows-3 gap-4 gap-x-10 gap-y-5 flex-col grid-flow-col">
+		
 					<Input label="Your name" {...register('student.name')} />
 					<Dropdown
 						label="What is your current level of study?"
@@ -100,7 +101,7 @@ const Profile = () => {
 					/>
 				</div>
 			) : (
-				<div className="flex gap-4 flex-col">
+				<div className="grid grid-cols-2 grid-rows-3 gap-4 gap-x-10 gap-y-5 flex-col grid-flow-col">
 					<Input label="Your name" {...register('professional.name')} />
 					<Input label="What is your current job title?" {...register('professional.job')} />
 					<Input label="In which industry do you currently work, and do you aim to stay in this field?" {...register('professional.industry')} />
@@ -118,7 +119,7 @@ const Profile = () => {
 					<Input label="Are there specific organizations or career levels you are targeting for growth?" {...register('professional.target')} />
 				</div>
 			)}
-			<ButtonSet className="mt-1" backButton={() => updateCurrent(1)} />
+			<ButtonSet className="mt-auto" backButton={() => updateCurrent(1)} />
 		</form>
 	)
 }

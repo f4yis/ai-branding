@@ -17,7 +17,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 		return (
 			<div className="relative w-full">
 				<div className="flex justify-between">
-					{label && <label className="text-base mb-2 block text-secondary font-medium">{label}</label>}
+					{label && <label className="text-sm mb-2 block text-secondary font-medium">{label}</label>}
 					{attrib && (
 						<a href={attrib} target="_blank" className="flex text-xs items-center gap-2" rel="noreferrer">
 							Data Source
@@ -65,7 +65,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 					<input
 						type={type}
 						className={twMerge(
-							'flex flex-1 h-10 w-full text-secondary rounded-md border-2 border-primary bg-background px-3 py-5 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
+							'flex flex-1 h-10 w-full text-secondary rounded-full border-2 border-primary/50 bg-background px-3 py-5 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50',
 							className,
 							sm && 'py-5',
 						)}

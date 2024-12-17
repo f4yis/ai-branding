@@ -104,22 +104,24 @@ const UploadProfile = () => {
 	}
 
 	return (
-		<form className="w-[max(65%,400px)] mx-auto mt-20 flex flex-col gap-10 max-w-full" onSubmit={submit}>
+		<form className="w-[max(65%,400px)] mx-auto mt-20 flex flex-col gap-10 max-w-full flex-1 text-center" onSubmit={submit}>
 			<div>
-				<h2 className="max-w-full text-[40px] text-secondary font-medium leading-[115%]">
+				<h2 className="max-w-full text-[40px] text-primary font-bold leading-[115%]">
 					Upload your LinkedIn Profile
 				</h2>
-				<p className="text-secondary font-normal text-base mt-3">
+				<p className="text-secondary font-normal text-xl mt-3">
 					Upload your LinkedIn Profile to extract your data.
 				</p>
 			</div>
-			<DropZone update={update} />
+			<div className='w-[700px] mx-auto'>
+				<DropZone update={update} />
+			</div>
 			<ButtonSet
-				className="mt-1"
+				className="mt-auto"
 				backButton={() => updateCurrent(0)}
 				nextText={'Next'}
 			/>
-			<div className="rounded-lg">
+			{/* <div className="rounded-lg">
 				<button
 					className="w-full py-4 text-left flex items-center justify-between text-secondary font-medium text-lg"
 					onClick={(e) => {
@@ -153,7 +155,7 @@ const UploadProfile = () => {
 						</ol>
 					</div>
 				)}
-			</div>
+			</div> */}
 		</form>
 	)
 

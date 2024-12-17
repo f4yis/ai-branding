@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import { Open_Sans } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import './globals.css'
 import { Toaster } from 'sonner';
 
@@ -35,8 +35,9 @@ import { Toaster } from 'sonner';
 // 	variable: '--font-satoshi',
 // })
 
-const openSans = Open_Sans({
+const openSans = Poppins({
 	subsets: ['latin'],
+	weight: ['400', '500', '600', '700'],
 	variable: '--font-open-sans',
 })
 

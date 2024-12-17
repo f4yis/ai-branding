@@ -28,7 +28,7 @@ const ButtonSet: FC<Props> = ({
 	// const updateBack = useHashStore(state => state.updateBack)
 	// const current = useStepStore(state => state.current)
 	return (
-		<div className={twMerge('flex flex-col gap-2', className)}>
+		<div className={twMerge('flex flex-col gap-2 w-full mx-auto mt-auto justify-end items-end', className)}>
 			<div className={twMerge('flex gap-6')}>
 				{
 					!noBack && (
@@ -39,7 +39,7 @@ const ButtonSet: FC<Props> = ({
 								backButton()
 							}}
 							className={twMerge(
-								'text-base py-2 px-5 border-2 border-primary text-primary rounded-full font-medium text-center max-w-[160px] w-full hover:bg-primary hover:text-white',
+								'text-[20px] py-2 px-5 text-primary rounded-full font-medium text-center max-w-[160px] w-full bg-stroke hover:bg-primary hover:text-white',
 								backBtnClass,
 							)}
 						>
@@ -52,7 +52,7 @@ const ButtonSet: FC<Props> = ({
 					type="submit"
 					onClick={nextButton}
 					className={twMerge(
-						'text-base text-center flex-1 py-2 px-5 bg-primary rounded-full disabled:bg-opacity-50 text-white hover:bg-secondary font-medium',
+						'text-[20px] text-center py-2 px-5 bg-primary rounded-full disabled:bg-opacity-50 text-white hover:bg-secondary font-medium',
 						nextBtnClass,
 					)}
 				>

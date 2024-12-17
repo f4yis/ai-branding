@@ -17,7 +17,7 @@ const Dropdown = ({
 }) => {
 	return (
 		<div className="w-full">
-			<label className="text-base mb-2 block text-secondary font-medium" htmlFor={name}>
+			<label className="text-sm mb-2 block text-secondary font-medium" htmlFor={name}>
 				{label}
 			</label>
 			<Controller
@@ -28,10 +28,22 @@ const Dropdown = ({
 						isMulti={isMulti}
 						classNames={{
 							indicatorSeparator: () => 'hidden',
-							container: () => 'w-full border-2 border-primary rounded-md text-secondary',
-							input: () => 'text-base text-primary',
+							container: () => 'w-full border-2 border-primary/50 rounded-full text-secondary',
+							input: () => 'text-base text-primary rounded-full rounded-[100px]',
 							placeholder: () => 'text-base text-secondary',
 							singleValue: () => 'text-base text-primary',
+							control: () => 'rounded-[100px]',
+							multiValue: () => 'rounded-[100px]',
+						}}
+						styles={{
+							control: (base) => ({
+								...base,
+								borderRadius: '100px',
+							}),
+							multiValue: (base) => ({
+								...base,
+								borderRadius: '100px',
+							}),
 						}}
 						options={options}
 						value={isMulti 

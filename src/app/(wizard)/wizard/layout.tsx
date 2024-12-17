@@ -15,7 +15,7 @@ const Apply = ({ children }: { children: React.ReactNode }) => {
 		updateCurrent(0)
 	}, [updateCurrent])
 	return (
-		<div className={twMerge('flex-1 text-5x flex flex-col items-center p-6', fullPage && 'p-0')}>
+		<div className={twMerge('flex-1 text-5x flex flex-col items-center p-6 bg-white', fullPage && 'p-0')}>
 			{!fullPage && (
 				<div className={twMerge('flex-1 items-center flex', steps.length && 'hidden')}>
 					<svg
@@ -43,7 +43,7 @@ const Apply = ({ children }: { children: React.ReactNode }) => {
 			<div
 				id="roooot"
 				className={twMerge(
-					'w-full mt-9 relative max-md:max-w-full',
+					'w-full mt-9 relative max-md:max-w-full flex-1 flex-col flex',
 					!steps.length && 'hidden',
 					fullPage && 'flex-col flex mt-0 max-w-full h-full flex-1 justify-center items-center',
 				)}
